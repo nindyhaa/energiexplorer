@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petualangan Energi dan Listrik - Kelas 6 SD</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #FFE53B 0%, #FF6B6B 50%, #4ECDC4 100%); color: #222; min-height: 100vh; }
+  header { background: linear-gradient(90deg, #FF6B6B, #FFD93D); color: white; text-align: center; padding: 25px 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+  header h1 { font-size: 2.2em; text-shadow: 2px 2px 6px rgba(0,0,0,0.3); }
+  header p { font-size: 1.15em; margin-top: 8px; font-weight: 500; }
+  .container { display: flex; max-width: 1250px; margin: 25px auto; gap: 20px; padding: 0 15px; }
+  nav { width: 290px; background: #fff; border-radius: 20px; padding: 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); height: fit-content; position: sticky; top: 20px; }
+  nav h2 { color: #FF6B6B; margin-bottom: 15px; text-align: center; font-size: 1.4em; }
+  .menu-btn { display: block; width: 100%; background: linear-gradient(90deg, #4ECDC4, #45B7D1); border: none; padding: 14px 16px; margin: 8px 0; border-radius: 14px; font-size: 1.02em; cursor: pointer; text-align: left; transition: all 0.3s; font-weight: bold; color: #1a1a1a; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+  .menu-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
+  .menu-btn.active { background: linear-gradient(90deg, #FF6B6B, #FFD93D); color: white; }
+  main { flex: 1; background: white; border-radius: 20px; padding: 28px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); min-height: 70vh; }
+  .section { display: none; }
+  .section.active { display: block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  h2 { color: #FF6B6B; border-bottom: 4px solid #FFD93D; padding-bottom: 8px; margin-bottom: 18px; font-size: 1.8em; }
+  h3 { color: #4ECDC4; margin: 18px 0 10px; }
+  ul { margin-left: 22px; line-height: 1.9; }
+  .card { background: #FFF9E6; border-left: 6px solid #FFD93D; padding: 16px; margin: 14px 0; border-radius: 12px; }
+  .highlight { background: #E8F9F7; padding: 12px 16px; border-radius: 12px; margin: 12px 0; border: 2px dashed #4ECDC4; }
+  img.content-img { width: 100%; max-width: 720px; height: auto; border-radius: 16px; margin: 15px auto; display: block; box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+  .quiz-question { background: #FFF3E0; padding: 16px; margin: 16px 0; border-radius: 14px; }
+  .option { display: block; background: white; border: 3px solid #4ECDC4; padding: 12px; margin: 9px 0; border-radius: 10px; cursor: pointer; transition: 0.2s; font-weight: 500; }
+  .option:hover { background: #E0F7FA; transform: translateX(4px); }
+  .option.correct { background: #C8E6C9; border-color: #4CAF50; }
+  .option.wrong { background: #FFCDD2; border-color: #F44336; }
+  .score { font-size: 1.4em; color: #FF6B6B; font-weight: bold; text-align: center; margin: 20px 0; }
+  button.next-btn { background: linear-gradient(90deg, #4ECDC4, #45B7D1); color: white; border: none; padding: 12px 24px; border-radius: 12px; cursor: pointer; font-size: 1.05em; margin-top: 12px; font-weight: bold; }
+  button.next-btn:hover { transform: scale(1.05); }
+  footer { text-align: center; padding: 18px; color: #333; font-size: 0.95em; background: rgba(255,255,255,0.7); }
+  @media (max-width: 800px) { .container { flex-direction: column; } nav { width: 100%; position: static; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>⚡ Petualangan Energi dan Listrik ⚡</h1>
+  <p>Belajar Seru dengan Gambar Cerah untuk Kelas 6 SD! 🌟🌈</p>
+</header>
+
+<div class="container">
+  <nav>
+    <h2>📚 Menu Belajar</h2>
+    <button class="menu-btn active" onclick="showSection('apa')">Apa itu Energi dan Listrik</button>
+    <button class="menu-btn" onclick="showSection('bentuk')">Berbagai Bentuk Energi</button>
+    <button class="menu-btn" onclick="showSection('perubahan')">Perubahan Energi</button>
+    <button class="menu-btn" onclick="showSection('rangkaian')">Rangkaian Listrik Sederhana</button>
+    <button class="menu-btn" onclick="showSection('magnet')">Magnet dan Pemanfaatannya</button>
+    <button class="menu-btn" onclick="showSection('yuk')">Yuk Mengenal Lebih Jauh</button>
+    <button class="menu-btn" onclick="showSection('game')">🎮 Game & Quiz</button>
+    <button class="menu-btn" onclick="showSection('kesimpulan')">Kesimpulan</button>
+  </nav>
+
+  <main>
+    <!-- Apa itu -->
+    <div id="apa" class="section active">
+      <h2>Apa itu Energi dan Listrik? 💡</h2>
+      <img src="images/jHgHH.jpg" alt="Anak-anak belajar energi dan listrik" class="content-img">
+      <div class="card">
+        <p><strong>Energi</strong> adalah kemampuan untuk melakukan usaha atau kerja. Tanpa energi, kita tidak bisa bergerak atau melakukan aktivitas!</p>
+        <p class="highlight">Contoh: Makanan yang kamu makan memberi energi agar kamu bisa belajar, bermain, dan berlari.</p>
+      </div>
+      <div class="card">
+        <p><strong>Listrik</strong> adalah salah satu bentuk energi yang sangat penting. Listrik membuat lampu menyala, kipas berputar, dan HP bisa diisi daya.</p>
+        <p>Listrik yang kita pakai di rumah biasanya berasal dari pembangkit listrik.</p>
+      </div>
+      <p class="highlight">Ingat: Energi tidak bisa diciptakan atau dihancurkan, hanya berubah bentuk! 🔄</p>
+    </div>
+
+    <!-- Bentuk Energi -->
+    <div id="bentuk" class="section">
+      <h2>Macam-Macam Berbagai Bentuk Energi 🌈</h2>
+      <img src="images/PAHXB.jpg" alt="Berbagai bentuk energi" class="content-img">
+      <div class="card"><strong>1. Energi Kinetik</strong> 🏃 - Energi karena benda bergerak. Contoh: bola menggelinding, angin, air mengalir.</div>
+      <div class="card"><strong>2. Energi Potensial</strong> ⛰️ - Energi tersimpan karena posisi. Contoh: bola di puncak bukit, air di waduk.</div>
+      <div class="card"><strong>3. Energi Panas</strong> ☀️ - Membuat benda terasa hangat. Contoh: matahari, api, setrika.</div>
+      <div class="card"><strong>4. Energi Cahaya</strong> 💡 - Memungkinkan kita melihat. Contoh: matahari, lampu.</div>
+      <div class="card"><strong>5. Energi Bunyi</strong> 🔊 - Energi yang kita dengar. Contoh: speaker, bel.</div>
+      <div class="card"><strong>6. Energi Listrik</strong> ⚡ - Dari aliran muatan. Contoh: baterai, PLN.</div>
+      <div class="card"><strong>7. Energi Kimia</strong> 🍎 - Tersimpan dalam zat. Contoh: makanan, baterai.</div>
+      <p class="highlight">Matahari adalah sumber energi utama di Bumi! 🌞</p>
+    </div>
+
+    <!-- Perubahan -->
+    <div id="perubahan" class="section">
+      <h2>Yuk Mengenal Perubahan Energi 🔄</h2>
+      <img src="images/nm6Rq.jpg" alt="Contoh perubahan energi" class="content-img">
+      <p>Energi selalu berubah dari satu bentuk ke bentuk lain.</p>
+      <h3>Contoh Perubahan Energi:</h3>
+      <ul>
+        <li><strong>Listrik → Panas:</strong> Setrika, magic com</li>
+        <li><strong>Listrik → Cahaya:</strong> Lampu, TV</li>
+        <li><strong>Listrik → Gerak:</strong> Kipas angin, blender</li>
+        <li><strong>Listrik → Bunyi:</strong> Speaker, radio</li>
+        <li><strong>Kimia → Listrik:</strong> Baterai</li>
+        <li><strong>Gerak → Listrik:</strong> Generator, PLTA</li>
+        <li><strong>Cahaya → Listrik:</strong> Panel surya</li>
+      </ul>
+      <div class="highlight">Di PLTA: Air jatuh memutar turbin lalu menghasilkan listrik. 🌊⚡</div>
+    </div>
+
+    <!-- Rangkaian -->
+    <div id="rangkaian" class="section">
+      <h2>Rangkaian Listrik Sederhana 🔌</h2>
+      <img src="images/8KmGD.jpg" alt="Rangkaian listrik sederhana" class="content-img">
+      <h3>Komponen Rangkaian:</h3>
+      <ul>
+        <li>🔋 <strong>Sumber</strong> (baterai): memberi energi</li>
+        <li>🔗 <strong>Kabel</strong>: menghantarkan listrik</li>
+        <li>🔘 <strong>Saklar</strong>: menghubungkan/memutuskan</li>
+        <li>💡 <strong>Beban</strong> (lampu): menghasilkan cahaya</li>
+      </ul>
+      <div class="card"><strong>Rangkaian Seri:</strong> Disusun berurutan. Jika satu putus, semua mati.</div>
+      <div class="card"><strong>Rangkaian Paralel:</strong> Bercabang. Jika satu putus, yang lain tetap nyala.</div>
+      <p class="highlight">Konduktor: tembaga, besi. Isolator: plastik, karet. ⚠️ Jangan main-main dengan listrik!</p>
+    </div>
+
+    <!-- Magnet -->
+    <div id="magnet" class="section">
+      <h2>Magnet dan Pemanfaatannya 🧲</h2>
+      <img src="images/C1CNO.jpg" alt="Magnet menarik paku dan klip" class="content-img">
+      <h3>Sifat Magnet:</h3>
+      <ul>
+        <li>Punya dua kutub: Utara dan Selatan</li>
+        <li>Kutub sama saling tolak</li>
+        <li>Kutub berbeda saling tarik</li>
+      </ul>
+      <h3>Pemanfaatan:</h3>
+      <ul>
+        <li>🧭 Kompas</li>
+        <li>🚪 Pintu kulkas</li>
+        <li>⚡ Generator (bersama listrik)</li>
+        <li>🔊 Speaker dan motor</li>
+        <li>🎮 Mainan dan alat tulis</li>
+      </ul>
+      <div class="highlight">Elektromagnet bisa dinyalakan dan dimatikan dengan listrik!</div>
+    </div>
+
+    <!-- Lebih jauh -->
+    <div id="yuk" class="section">
+      <h2>Yuk Mengenal Lebih Jauh 🌍</h2>
+      <img src="images/hgqzT.jpg" alt="Energi terbarukan" class="content-img">
+      <div class="card"><strong>Tidak Terbarukan:</strong> Batu bara, minyak, gas. Bisa habis dan mencemari.</div>
+      <div class="card"><strong>Terbarukan:</strong> Matahari, angin, air, panas bumi. Ramah lingkungan! 🌱</div>
+      <h3>Tips Hemat Energi:</h3>
+      <ul>
+        <li>Matikan lampu jika tidak dipakai</li>
+        <li>Gunakan lampu LED</li>
+        <li>Cabut charger jika sudah penuh</li>
+        <li>Manfaatkan cahaya matahari</li>
+      </ul>
+      <p class="highlight">Hemat energi = menjaga bumi! 🌏💚</p>
+    </div>
+
+    <!-- Quiz -->
+    <div id="game" class="section">
+      <h2>🎮 Game & Quiz Seru!</h2>
+      <p>Ayo uji pengetahuanmu!</p>
+      <div id="quiz-container">
+        <div class="quiz-question" id="q1">
+          <p><strong>1. Apa pengertian energi?</strong></p>
+          <div class="option" onclick="checkAnswer(this, true)">A. Kemampuan untuk melakukan usaha atau kerja</div>
+          <div class="option" onclick="checkAnswer(this, false)">B. Benda yang ditarik magnet</div>
+          <div class="option" onclick="checkAnswer(this, false)">C. Aliran air</div>
+          <div class="option" onclick="checkAnswer(this, false)">D. Cahaya matahari saja</div>
+        </div>
+        <div class="quiz-question" id="q2" style="display:none;">
+          <p><strong>2. Contoh listrik menjadi panas adalah...</strong></p>
+          <div class="option" onclick="checkAnswer(this, false)">A. Kipas angin</div>
+          <div class="option" onclick="checkAnswer(this, true)">B. Setrika listrik</div>
+          <div class="option" onclick="checkAnswer(this, false)">C. Speaker</div>
+          <div class="option" onclick="checkAnswer(this, false)">D. Panel surya</div>
+        </div>
+        <div class="quiz-question" id="q3" style="display:none;">
+          <p><strong>3. Jika satu lampu putus dan yang lain tetap nyala, itu rangkaian...</strong></p>
+          <div class="option" onclick="checkAnswer(this, false)">A. Seri</div>
+          <div class="option" onclick="checkAnswer(this, true)">B. Paralel</div>
+          <div class="option" onclick="checkAnswer(this, false)">C. Campuran</div>
+          <div class="option" onclick="checkAnswer(this, false)">D. Terbuka</div>
+        </div>
+        <div class="quiz-question" id="q4" style="display:none;">
+          <p><strong>4. Kutub magnet yang sama akan...</strong></p>
+          <div class="option" onclick="checkAnswer(this, true)">A. Saling tolak</div>
+          <div class="option" onclick="checkAnswer(this, false)">B. Saling tarik</div>
+          <div class="option" onclick="checkAnswer(this, false)">C. Tidak bereaksi</div>
+          <div class="option" onclick="checkAnswer(this, false)">D. Netral</div>
+        </div>
+        <div class="quiz-question" id="q5" style="display:none;">
+          <p><strong>5. Sumber energi terbarukan adalah...</strong></p>
+          <div class="option" onclick="checkAnswer(this, false)">A. Batu bara</div>
+          <div class="option" onclick="checkAnswer(this, true)">B. Matahari dan angin</div>
+          <div class="option" onclick="checkAnswer(this, false)">C. Minyak bumi</div>
+          <div class="option" onclick="checkAnswer(this, false)">D. Gas alam</div>
+        </div>
+        <div id="result" style="display:none;">
+          <p class="score" id="scoreText"></p>
+          <button class="next-btn" onclick="restartQuiz()">Main Lagi!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kesimpulan -->
+    <div id="kesimpulan" class="section">
+      <h2>Kesimpulan 🎉</h2>
+      <div class="card">
+        <p>Energi adalah kemampuan untuk melakukan kerja. Listrik adalah bentuk energi penting yang bisa berubah menjadi banyak bentuk lain.</p>
+        <p>Rangkaian listrik dan magnet sangat berguna dalam kehidupan sehari-hari dan teknologi.</p>
+      </div>
+      <div class="highlight">
+        <h3>Pesan Penting:</h3>
+        <ul>
+          <li>Hematlah energi listrik</li>
+          <li>Dukung energi terbarukan</li>
+          <li>Selalu berhati-hati dengan listrik</li>
+          <li>Terus belajar dan bereksperimen dengan aman!</li>
+        </ul>
+      </div>
+      <p style="text-align:center; font-size:1.3em; margin-top:20px;">Selamat belajar! Kamu hebat! 🌟⚡🧲</p>
+    </div>
+  </main>
+</div>
+
+<footer>
+  Materi Pembelajaran Interaktif Energi dan Listrik | Kelas 6 SD | Siap untuk GitHub Pages
+</footer>
+
+<script>
+let currentQuestion = 1;
+let score = 0;
+const totalQuestions = 5;
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+function checkAnswer(el, isCorrect) {
+  const options = el.parentElement.querySelectorAll('.option');
+  options.forEach(opt => opt.style.pointerEvents = 'none');
+  if (isCorrect) {
+    el.classList.add('correct');
+    score += 20;
+  } else {
+    el.classList.add('wrong');
+    options.forEach(opt => {
+      if (opt.getAttribute('onclick').includes('true')) opt.classList.add('correct');
+    });
+  }
+  setTimeout(() => {
+    document.getElementById('q' + currentQuestion).style.display = 'none';
+    currentQuestion++;
+    if (currentQuestion <= totalQuestions) {
+      document.getElementById('q' + currentQuestion).style.display = 'block';
+    } else {
+      showResult();
+    }
+  }, 1100);
+}
+
+function showResult() {
+  document.getElementById('result').style.display = 'block';
+  let message = score >= 80 ? 'Luar biasa! Juara energi! 🏆' : score >= 60 ? 'Bagus sekali! 👍' : 'Yuk belajar lagi! 💪';
+  document.getElementById('scoreText').innerHTML = `Skor kamu: ${score}/100<br>${message}`;
+}
+
+function restartQuiz() {
+  currentQuestion = 1;
+  score = 0;
+  document.querySelectorAll('.quiz-question').forEach((q, i) => {
+    q.style.display = i === 0 ? 'block' : 'none';
+    q.querySelectorAll('.option').forEach(opt => {
+      opt.classList.remove('correct', 'wrong');
+      opt.style.pointerEvents = 'auto';
+    });
+  });
+  document.getElementById('result').style.display = 'none';
+}
+</script>
+</body>
+</html>
